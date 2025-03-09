@@ -40,9 +40,9 @@ class _LoginBodyState extends State<LoginBody> {
             children: [
               Padding(
                 padding: EdgeInsets.fromLTRB(
-                    .06 * screenWidth, .1 * screenHeight, 0, 10),
+                    .01 * screenWidth, .1 * screenHeight, 0, 10),
                 child: Text(
-                  "Welcome back! Glad to see you, Again!",
+                  "Yippy! You’re Back!",
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: screenWidth * .07,
@@ -50,14 +50,14 @@ class _LoginBodyState extends State<LoginBody> {
                   ),
                 ),
               ),
-              SizedBox(height: screenHeight * .02),
+              SizedBox(height: screenHeight * .05),
               Form(
                 key: formKey,
                 child: Column(
                   children: [
                     SizedBox(
-                      width: screenWidth - 44,
-                      height: screenHeight * .086,
+                      width: screenWidth - 60,
+                      height: screenHeight * .07,
                       child: TextFormField(
                         decoration: const InputDecoration(
                           hintText: 'Enter your email',
@@ -74,8 +74,8 @@ class _LoginBodyState extends State<LoginBody> {
                     ),
                     SizedBox(height: screenHeight * .02),
                     SizedBox(
-                      width: screenWidth - 44,
-                      height: screenHeight * .086,
+                      width :screenWidth - 60,
+                      height:  screenHeight * .07,
                       child: TextFormField(
                         controller: _passwordController,
                         // Step 3: Bind controller to the password field
@@ -126,7 +126,7 @@ class _LoginBodyState extends State<LoginBody> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
-                          // Navigator.pushReplacementNamed(context, '/Home');
+                          Navigator.pushReplacementNamed(context, '/Home');
 
                         }
                       },
@@ -135,7 +135,7 @@ class _LoginBodyState extends State<LoginBody> {
                           backgroundColor: MyColors.kPrimaryColor,
                           foregroundColor: MyColors.white,
                           minimumSize: Size(
-                              screenWidth - 44, screenHeight * .086),
+                              screenWidth - 60, screenHeight * .07),
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(8))),
           

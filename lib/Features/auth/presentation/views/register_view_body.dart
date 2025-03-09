@@ -49,8 +49,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                   child: Column(
                     children: [
                       SizedBox(
-                        width: screenWidth - 44,
-                        height: screenHeight * .086,
+                        width: screenWidth - 60,
+                        height: screenHeight * .07,
                         child: TextFormField(
                           decoration: const InputDecoration(
                             hintText: 'Enter your name',
@@ -67,8 +67,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                       ),
                       SizedBox(height: screenHeight * .02),
                       SizedBox(
-                        width: screenWidth - 44,
-                        height: screenHeight * .086,
+                        width: screenWidth - 60,
+                        height: screenHeight * .07,
                         child: TextFormField(
                           decoration: const InputDecoration(
                             hintText: 'Enter your email',
@@ -85,8 +85,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                       ),
                       SizedBox(height: screenHeight * .02),
                       SizedBox(
-                        width: screenWidth - 44,
-                        height: screenHeight * .086,
+                        width: screenWidth - 60,
+                        height: screenHeight * .07,
                         child: TextFormField(
                           controller: _passwordController,
                           // Step 3: Bind controller to the password field
@@ -116,8 +116,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                       ),
                       SizedBox(height: screenHeight * .02),
                       SizedBox(
-                        width: screenWidth - 44,
-                        height: screenHeight * .086,
+                        width: screenWidth - 60,
+                        height: screenHeight * .07,
                         child: TextFormField(
                           controller: _passwordController,
                           // Step 3: Bind controller to the password field
@@ -145,7 +145,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                           ),
                         ),
                       ),
-                      SizedBox(height: screenHeight * .02),
+                      SizedBox(height: screenHeight * .05),
                       ElevatedButton(
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
@@ -158,7 +158,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                           backgroundColor: MyColors.kPrimaryColor,
                           foregroundColor: MyColors.white,
                           minimumSize: Size(
-                              screenWidth - 44, screenHeight * .086),
+                              screenWidth - 60, screenHeight * .07),
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(8))),
 
