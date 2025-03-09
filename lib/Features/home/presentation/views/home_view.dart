@@ -98,7 +98,7 @@ int _selectedIndex = 0;
               title: "Daily Activities",
               imagePath: AssetsData.actvts,
               height: height*.17,
-              color: const Color(0xffFEF4F0), context: context, routeName: null, // Light Pink
+              color: const Color(0xffFEF4F0), context: context, routeName: '/DailyActivities', // Light Pink
             ),
 
              SizedBox(height: height*.02),

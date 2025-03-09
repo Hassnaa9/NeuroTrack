@@ -7,7 +7,7 @@ Widget buildDateSelector() {
     
     return Container(
       color: Colors.white,
-      height: 50,
+      height: 70,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: dates.length,
@@ -21,6 +21,7 @@ Widget buildDateSelector() {
 
                        },
               child: Container(
+                width: 90,
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 decoration: BoxDecoration(
                   color: isToday ? MyColors.kPrimaryColor : Colors.white,
