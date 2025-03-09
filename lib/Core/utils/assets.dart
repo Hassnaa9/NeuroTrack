@@ -7,4 +7,10 @@ class AssetsData{
   static const actvts = 'assets/icons/actv.svg';
   static const therapy = 'assets/icons/ther.svg';
   static const milestone = 'assets/icons/milestone.svg';
+  static const calender = 'assets/icons/Calendar.png';
+  static const home = 'assets/icons/Home.png';
+  static const notify = 'assets/icons/Notifications.png';
+  static const profile = 'assets/icons/Profile.png';
+  static const report = 'assets/icons/Report.svg';
+
 }

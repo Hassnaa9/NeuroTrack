@@ -1,13 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nurtotrack/Core/utils/assets.dart';
+import 'package:nurtotrack/Features/auth/splash_screen.dart';
+import 'package:nurtotrack/Features/home/presentation/views/widgets/custom_card.dart';
+import 'package:nurtotrack/Features/home/presentation/views/widgets/custom_level_slider.dart';
+import 'package:nurtotrack/constants.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
   static const route = '/Home';
 
   @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+int _selectedIndex = 0;
+
+  // Function to navigate to the appropriate screen
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    // Navigate to the appropriate screen based on the selected index
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SplashScreen()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SplashScreen()),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SplashScreen()),
+        );
+        break;
+      case 3:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SplashScreen()),
+        );
+        break;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -15,7 +63,7 @@ class HomeViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 40),
+            SizedBox(height: height*.02),
             const Text(
               "Welcome Back",
               style: TextStyle(fontSize: 16, color: Colors.black54),
@@ -31,33 +79,36 @@ class HomeViewBody extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Autism Level Slider Card
-            _buildAutismLevelCard(),
+            buildAutismLevelCard(),
 
             const SizedBox(height: 20),
 
             // Therapy Goals Card
-            _buildFeatureCard(
+            buildFeatureCard(
               title: "Therapy Goals",
               imagePath: AssetsData.therapy,
-              color: const Color(0xFFFFF4DA), // Light Yellow
+              height: height*.17,
+              color: const Color(0xffF9F3E3), // Light Yellow
             ),
 
-            const SizedBox(height: 12),
+             SizedBox(height: height*.02),
 
             // Daily Activities Card
-            _buildFeatureCard(
+            buildFeatureCard(
               title: "Daily Activities",
               imagePath: AssetsData.actvts,
-              color: const Color(0xFFFFEDED), // Light Pink
+              height: height*.17,
+              color: const Color(0xffFEF4F0), // Light Pink
             ),
 
-            const SizedBox(height: 12),
+             SizedBox(height: height*.02),
 
             // Development Milestones Card
-            _buildFeatureCard(
+            buildFeatureCard(
               title: "Development Milestones",
               imagePath: AssetsData.milestone,
-              color: const Color(0xFFE6F5E9), // Light Green
+              height: height*.17,
+              color: const Color(0xffF5FAF4), // Light Green
             ),
           ],
         ),
@@ -68,80 +119,36 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 
-  // Autism Level Slider Widget
-  Widget _buildAutismLevelCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFFDFA8F6), // Purple
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Autism Level",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(
-                child: Slider(
-                  value: 1,
-                  min: 0,
-                  max: 10,
-                  onChanged: null, // Disabled for now
-                  activeColor: Colors.white,
-                  inactiveColor: Colors.white30,
-                ),
-              ),
-              const Text(
-                "1",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Feature Card Widget
-  Widget _buildFeatureCard({required String title, required String imagePath, required Color color}) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          SvgPicture.asset(imagePath, width: 50, height: 50), // Use SvgPicture.asset for SVG images
-          const SizedBox(width: 12),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-          ),
-        ],
-      ),
-    );
-  }
 
   // Bottom Navigation Bar
   Widget _buildBottomNavBar() {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.purple,
-      unselectedItemColor: Colors.black54,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: "Progress"),
-        BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: "Calendar"),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+      selectedItemColor: MyColors.kPrimaryColor,
+      unselectedItemColor: Colors.grey,
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped, // Handle item tap and navigation
+      items: [
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(AssetsData.home)),
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(AssetsData.report, width: 24, height: 24), // Use SvgPicture.asset for SVG images
+          label: "Report",
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(AssetsData.calender)),
+          label: "Calender",
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(AssetsData.notify)), // Correct icon for Notifications
+          label: "Notifications",
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(AssetsData.profile)),
+          label: "Profile",
+        ),
       ],
     );
   }
