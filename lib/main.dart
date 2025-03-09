@@ -5,26 +5,28 @@ import 'package:nurtotrack/Features/auth/register.dart';
 import 'package:nurtotrack/Features/auth/splash_screen.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // Define the routes   here
+      initialRoute: '/', // Set SplashScreen as the initial route
       routes: {
-         '/': (context) => const SplashScreen(), // Set SplashScreen as the initial route
-        '/SigninOrSignup': (context) => const SigninOrSignupScreen(),
-        '/SignIn' : (context) => const SignInScreen(),
-        '/SignUp' : (context) => SignUpScreen(),
-        // '/ForgetPass' : (context) => ForgotPasswordScreen(),
-        // '/Verify' : (context) => const VerificationScreen(),
-        // '/ChangePass' : (context) => const ChangePasswordScreen(),
-        // '/PassChanged' : (context) => PasswordChangedScreen(),
-        // '/Home' : (context) => const Home(),
-        // '/Calculations' : (context) => const Questionnaire()
-
+        '/': (context) => const SplashScreen(),
+        '/SigninOrSignup':  (context) => const SigninOrSignupScreen(),
+        '/SignIn': (context) => const SignInScreen(),
+        '/SignUp': (context) => const SignUpScreen(),
+      },
+      onGenerateRoute: (settings) {
+        // Handle undefined routes
+        return MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
+        );
       },
     );
   }

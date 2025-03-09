@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nurtotrack/Features/auth/presentation/views/widgets/Social_Icon_button.dart';
 import '../../../../../Core/utils/assets.dart';
 
+// ignore: camel_case_types
 class login_methods extends StatelessWidget {
   final double screenWidth,screenHeight;
 

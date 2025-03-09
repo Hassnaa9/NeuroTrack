@@ -4,7 +4,7 @@ import 'package:nurtotrack/Features/auth/presentation/views/register_view_body.d
 class SignUpScreen extends StatelessWidget {
   final String route ='/SignUp';
 
-  SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

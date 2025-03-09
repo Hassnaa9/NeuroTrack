@@ -3,7 +3,7 @@ import 'package:nurtotrack/Features/auth/presentation/views/login_view_body.dart
 class SignInScreen extends StatelessWidget {
   final String route = '/SignIn';
 
-  const SignInScreen({Key? key}) : super(key: key);
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

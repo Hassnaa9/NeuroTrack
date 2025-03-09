@@ -13,14 +13,12 @@ class LoginOrRegBody extends StatelessWidget {
     return  Stack(
         fit: StackFit.expand,
         children:[
-          Image.asset(AssetsData.splashScreen,
-          fit: BoxFit.fill,),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
                 children: [
-                  Spacer(flex:(screenHeight * .0039).toInt()),
+                  Spacer(flex:(screenHeight * .004).toInt()),
                   Expanded(
                     flex: 10,
                     child: Center(
@@ -40,10 +38,10 @@ class LoginOrRegBody extends StatelessWidget {
                       Navigator.pushNamed(context, '/SignIn');
                     },
                     style: ElevatedButton.styleFrom(
-                      elevation: 40,
+                      elevation: 5,
                       backgroundColor: MyColors.kPrimaryColor,
                       foregroundColor: MyColors.white,
-                      minimumSize: Size(screenWidth - 44, screenHeight * .086),
+                      minimumSize: Size(screenWidth - 60, screenHeight * .07),
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
                     ),
                     child: const Text("Sign In"),
@@ -54,9 +52,9 @@ class LoginOrRegBody extends StatelessWidget {
                       Navigator.pushNamed(context, '/SignUp');
                     },
                     style: ElevatedButton.styleFrom(
-                        elevation: 40,
+                        elevation: 5,
                         foregroundColor: MyColors.black,
-                        minimumSize: Size(screenWidth - 44, screenHeight * .086),
+                        minimumSize: Size(screenWidth - 60, screenHeight * .07),
                         shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
                         backgroundColor: MyColors.white),
                     child: const Text("Sign Up"),

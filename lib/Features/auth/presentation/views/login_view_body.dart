@@ -6,6 +6,7 @@ class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginBodyState createState() => _LoginBodyState();
 }
 
@@ -24,7 +25,7 @@ class _LoginBodyState extends State<LoginBody> {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     double screenWidth = MediaQuery
         .of(context)
         .size
@@ -51,7 +52,7 @@ class _LoginBodyState extends State<LoginBody> {
               ),
               SizedBox(height: screenHeight * .02),
               Form(
-                key: _formKey,
+                key: formKey,
                 child: Column(
                   children: [
                     SizedBox(
@@ -106,7 +107,7 @@ class _LoginBodyState extends State<LoginBody> {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/ForgetPass');
+                          // Navigator.pushNamed(context, '/ForgetPass');
                         },
                         child: Text(
                           'Forgot Password?',
@@ -123,9 +124,9 @@ class _LoginBodyState extends State<LoginBody> {
                     SizedBox(height: screenHeight * .02),
                     ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          Navigator.pushReplacementNamed(context, '/Home');
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          // Navigator.pushReplacementNamed(context, '/Home');
 
                         }
                       },

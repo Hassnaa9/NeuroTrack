@@ -23,7 +23,7 @@ class _RegisterBodyState extends State<RegisterBody> {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -45,7 +45,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                 ),
                 SizedBox(height: screenHeight * .02),
                 Form(
-                  key: _formKey,
+                  key: formKey,
                   child: Column(
                     children: [
                       SizedBox(
@@ -148,8 +148,8 @@ class _RegisterBodyState extends State<RegisterBody> {
                       SizedBox(height: screenHeight * .02),
                       ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
                             // Navigate to the main screen
                           }
                         },
