@@ -4,6 +4,7 @@ import 'package:nurtotrack/Features/auth/login_or_reg.dart';
 import 'package:nurtotrack/Features/auth/register.dart';
 import 'package:nurtotrack/Features/auth/splash_screen.dart';
 import 'package:nurtotrack/Features/home/home.dart';
+import 'package:nurtotrack/Features/home/presentation/views/therapy_goal.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/SignIn': (context) => const SignInScreen(),
         '/SignUp': (context) => const SignUpScreen(),
         '/Home': (context) => const Home(),
+        '/TherapyGoals': (context) => const TherapyGoalsScreen(),
       },
       onGenerateRoute: (settings) {
         // Handle undefined routes

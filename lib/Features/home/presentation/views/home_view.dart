@@ -88,7 +88,7 @@ int _selectedIndex = 0;
               title: "Therapy Goals",
               imagePath: AssetsData.therapy,
               height: height*.17,
-              color: const Color(0xffF9F3E3), // Light Yellow
+              color: const Color(0xffF9F3E3), context: context, routeName: '/TherapyGoals', // Light Yellow
             ),
 
              SizedBox(height: height*.02),
@@ -98,7 +98,7 @@ int _selectedIndex = 0;
               title: "Daily Activities",
               imagePath: AssetsData.actvts,
               height: height*.17,
-              color: const Color(0xffFEF4F0), // Light Pink
+              color: const Color(0xffFEF4F0), context: context, routeName: null, // Light Pink
             ),
 
              SizedBox(height: height*.02),
@@ -108,7 +108,7 @@ int _selectedIndex = 0;
               title: "Development Milestones",
               imagePath: AssetsData.milestone,
               height: height*.17,
-              color: const Color(0xffF5FAF4), // Light Green
+              color: const Color(0xffF5FAF4), context: context, routeName: null, // Light Green
             ),
           ],
         ),
